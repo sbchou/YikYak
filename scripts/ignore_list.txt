@@ -1,0 +1,2 @@
+
+locations_to_filter = ["mills_college", "stanford", "smith_college", "cedar_crest_college", "sweet_briar_college", "bucknell_university", "california_institute_of_technology", "yale_university", "mount_holyoke_college", "harvard", "simmon\'s college", "barnard college", "spelman college"]
