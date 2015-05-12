@@ -21,6 +21,34 @@ def json_to_csv(outpath="/Users/cat/Dropbox (MIT)/LSM/YikYak/data/csv"):
 def preproc_name(schoolname):
     return schoolname.strip().replace(" ", "_").lower()
 
+def get_text(tweet):
+    """Just the pure body of tweets."""
+    text = tweet['body'].encode('utf8')
+    return text
+
+def is_reply(tweet):
+    """Is this an original tweet"""
+    if "inReplyTo" in tweet.keys():
+        return 1
+    else:
+        return 0
+
+def favorite_ct(tweet):
+    return tweet["favoritesCount"]
+
+def rt_ct(tweet):
+    return tweet["retweetCount"]
+
+def contains_vulgarity(tweet):
+    pass
+
+def get_sw():
+    SWEAR_PATH = "/Users/cat/Dropbox (MIT)/yikyak/analysis/swear_words/swaer_words_list.csv"
+    vulgarities = []
+    with open(SWEAR_PATH, 'r') as sw:
+        vulgarities = sw.read().splitlines()
+    return vulgarities
+
 def get_text(filename):
     """ Just the pure body of tweets."""
     tweets = []

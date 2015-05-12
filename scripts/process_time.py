@@ -36,7 +36,7 @@ def process_school(path):
         days += d
     return hours, days
 
-def run():
+def run_locations():
     full_path = "/Users/cat/Dropbox (MIT)/LSM/YikYak/tagged_unpacked/"
     schools = glob.glob(full_path + "/*")
     for school in schools:
@@ -51,8 +51,21 @@ def run():
         pickle.dump(hours, open(hour_path, 'wb'))
         pickle.dump(days, open(day_path, 'wb'))
 
+def run_all():
+    hours = Counter()
+    days = Counter()
+    full_path = "/Users/cat/Dropbox (MIT)/LSM/YikYak/tagged_unpacked/"
+    schools = glob.glob(full_path + "/*")
+    for school in schools:
+        print school   
+        h, d = process_school(school)
+        hours += h
+        days += d
 
-
-
-
+    hour_path = "/Users/cat/Dropbox (MIT)/LSM/YikYak/data/pickles/"\
+                + "all_hours.pickle"
+    day_path = "/Users/cat/Dropbox (MIT)/LSM/YikYak/data/pickles/"\
+                + "all_days.pickle"
+    pickle.dump(hours, open(hour_path, 'wb'))
+    pickle.dump(days, open(day_path, 'wb'))
 
