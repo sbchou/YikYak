@@ -4,6 +4,7 @@ import twokenize
 import os
 import cPickle as pickle
 import re
+import time
 
 def preproc_name(schoolname):
     return schoolname.strip().replace(" ", "_").lower()
